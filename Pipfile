@@ -9,6 +9,7 @@ verify_ssl = true
 netmiko = "*"
 pycodestyle = "*"
 paramiko = "*"
+napalm = "*"
 
 [requires]
 python_version = "3.7"

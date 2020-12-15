@@ -21,6 +21,7 @@ if __name__ == "__main__":
                       dest_file="load_conf.conf") as scp_transfer:
         if not scp_transfer.check_file_exists():
             if not scp_transfer.verify_space_available():
-                raise ValueError("Insufficient space available on remote device")
+                raise ValueError(
+                    "Insufficient space available on remote device")
 
             scp_transfer.transfer_file()
