@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from napalm import get_network_driver
 import pprint
 
@@ -12,7 +13,5 @@ if __name__ == "__main__":
     junos_driver = get_network_driver("junos")
 
     with junos_driver(**vsrx1_params) as conn:
-        arps = conn.get_arp_table()
-        for arp in arps:
-            print(type(arp))
-            pprint.pprint(arp, indent=2)
+        report = conn.compliance_report("compliance.yaml")
+        pprint.pprint(report, width=40, indent=1)

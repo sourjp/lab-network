@@ -10,6 +10,7 @@ netmiko = "*"
 pycodestyle = "*"
 paramiko = "*"
 napalm = "*"
+junos-eznc = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"

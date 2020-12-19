@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 from napalm import get_network_driver
+import pprint
 
 vsrx1_params = {
     "hostname": "localhost",
@@ -11,7 +13,7 @@ if __name__ == "__main__":
     junos_driver = get_network_driver("junos")
 
     with junos_driver(**vsrx1_params) as conn:
-        interfaces = conn.get_interfaces()
-        for k, v in interfaces.items():
-            if k.startswith("ge-"):
-                print(k, v.get("mac_address"))
+        arps = conn.get_arp_table()
+        for arp in arps:
+            print(type(arp))
+            pprint.pprint(arp, indent=2)
